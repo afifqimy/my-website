@@ -58,3 +58,37 @@ function rotateImage() {
 
 // Rotate image every 5 seconds
 setInterval(rotateImage, 5000);
+
+// ===== DOWNLOAD CV =====
+function downloadCV() {
+    const link = document.createElement('a');
+    link.href = 'CV.pdf';
+    link.download = 'AFIF_HAQIMY_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// ===== DREAM SECTION BACKGROUND ROTATION =====
+const dreamBackgrounds = [
+    "airbus pic.png",
+    "dassault pic.png"
+];
+
+let currentDreamBgIndex = 0;
+const dreamSection = document.getElementById("dream");
+
+function rotateDreamBackground() {
+    currentDreamBgIndex = (currentDreamBgIndex + 1) % dreamBackgrounds.length;
+    dreamSection.style.backgroundImage = `linear-gradient(135deg, rgba(0,26,77,0.7), rgba(0,51,170,0.7)), url('${dreamBackgrounds[currentDreamBgIndex]}')`;
+    dreamSection.style.backgroundSize = "cover";
+    dreamSection.style.backgroundPosition = "center";
+}
+
+// Rotate dream background every 5 seconds
+setInterval(rotateDreamBackground, 5000);
+
+// Set initial background
+dreamSection.style.backgroundImage = `linear-gradient(135deg, rgba(0,26,77,0.7), rgba(0,51,170,0.7)), url('${dreamBackgrounds[0]}')`;
+dreamSection.style.backgroundSize = "cover";
+dreamSection.style.backgroundPosition = "center";
